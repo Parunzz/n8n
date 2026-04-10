@@ -1,13 +1,15 @@
-version: "3.8"
-
 services:
   n8n:
     image: n8nio/n8n:latest
     container_name: n8n
     restart: always
-    ports:
-      - "5678:5678"
-    env_file:
-      - .env
+    env_file: .env
     volumes:
       - ./n8n_data:/home/node/.n8n
+
+  # tunnel:
+  #   image: cloudflare/cloudflared:latest
+  #   restart: always
+  #   environment:
+  #     - TUNNEL_TOKEN=${TUNNEL_TOKEN}
+  #   command: tunnel run

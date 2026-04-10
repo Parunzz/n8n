@@ -1,2 +1,9 @@
-.env
+# Ignore the n8n database and files
 n8n_data/
+
+# Ignore your private environment variables
+.env
+
+# Ignore system files
+.DS_Store
+*.log
