@@ -9,9 +9,8 @@ services:
     volumes:
       - ./n8n_data:/home/node/.n8n
 
-  # tunnel:
-  #   image: cloudflare/cloudflared:latest
-  #   restart: always
-  #   environment:
-  #     - TUNNEL_TOKEN=${TUNNEL_TOKEN}
-  #   command: tunnel run
+  tunnel:
+    image: cloudflare/cloudflared:latest
+    container_name: cloudflare-tunnel
+    restart: always
+    command: tunnel --url http://n8n:5678
